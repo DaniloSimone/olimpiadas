@@ -3,10 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="carrito.css">
+    <link rel="stylesheet" href="css/carrito.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/footer.css">
     <title>Carrito</title>
+    <style>
+        .desplegable {
+            position: relative;
+            display: inline-block;
+        }
+
+        .opciones-desplegables {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 8px;
+        }
+
+        .opciones-desplegables a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;            border-radius: 8px;
+        }
+
+        .opciones-desplegables a:hover {
+            background-color: #f1f1f1;
+            cursor:pointer;
+            border-radius: 8px;
+        }
+
+        .desplegable:hover .opciones-desplegables {
+            display: block;
+        }
+
+        .desplegable:hover .boton-desplegable {
+            background-color: #1b1d1c;
+            width: 70px;
+            height: 70px;
+        }
+
+        .boton-desplegable {
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .transparent-button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .transparent-button i {
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
 </head>
 <body>
+    <header>
+        <div class="header_top">
+            <div class="top1">
+                <img src="images/pol.jpg" alt="">
+            </div>
+            <div class="top2">
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Busque algo">
+                        <div id="suggestions" class="suggestions"></div>
+                </div>
+                <div class="top2search">
+                    <button id="search-button" class="transparent-button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+
+                </div>
+            </div>
+            <div class="top4section">
+            </div>
+            <div class="top5section">
+                <div class="top5left">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+                <div class="top3right">
+                    <p>Bienvenido</p>
+                    <p><b>Inicia / Registrate</b></p>
+                </div>
+                <div class="top4extra">
+                    <div class="desplegable">
+                        <button class="boton-desplegable">▼</button>
+                        <div class="opciones-desplegables">
+                            <a href="#iniciar-sesion">Iniciar sesión</a>
+                            <a href="#registrarse">Registrarse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="carrito.html">
+           <div class="top6section">
+            <div class="top5left">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <div class="top6right">
+                <div class="pcart">
+                    <p>0</p>
+                </div>
+                <p><b>Carrito</b></p>
+            </div>
+           </div>
+            </a>
+        </div>
+        <div class="header_btm">
+                <div class="catsec">
+                    <div class="dropdown">
+                        <button class="dropbtn">Todas las Categorías</button>
+                        <div class="dropdown-content">
+                            <div class="dropdown-section">
+                                <a href="#">Electrónica</a>
+                                <a href="#">Ropa</a>
+                                <a href="#">Hogar</a>
+                                <a href="#">Juguetes</a>
+                                <a href="#">Deportes</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <a href="#">Belleza</a>
+                                <a href="#">Salud</a>
+                                <a href="#">Automóviles</a>
+                                <a href="#">Herramientas</a>
+                                <a href="#">Jardín</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="">
+                <div class="btm3 btmHover">
+                    <p>Novedades</p>
+                </div>
+                </a>
+                <a href="">
+                <div class="btm4 btmHover">
+                    <p>Marcas</p>
+                </div>
+                </a>
+                <a href="">
+                <div class="btm5 btmHover">
+                    <p>Ayuda</p>
+                </div>
+                </a>
+                <a href="">
+                <div class="btm6 btmHover">
+                    <p>Sobre Nosotros</p>
+                </div>
+                </a>
+                <div class="btm7 btmHover">
+                    <div class="barra-navegacion">
+                        <div class="menu-desplegable">
+                            <button class="boton-desplegable">Más</button>
+                            <div class="contenido-desplegable">
+                                <a href="#">Centro de Mensajes</a>
+                                <a href="#">Mis Pedidos</a>
+                                <a href="#">Lista de Deseos</a>
+                                <a href="#">Configuración</a>
+                                <a href="#">Ayuda</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </header>
     <div class="cart-container">
         <h1>Carrito de Compras</h1>
         <div class="cart-items">
@@ -48,7 +220,49 @@
             <button class="checkout-btn" disabled>Proceder al Pago</button>
         </div>
     </div>
-    <script src="script.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Sport One</h4>
+                    <ul>
+                        <li><a href="#">Sobre nosotros</a></li>
+                        <li><a href="#">Politica de Privacidad</a></li>
+                     <li><a href="#">Terminos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contactanos</h4>
+                    <ul>
+                        <li><a href="#"> +54 9 11 3408-7695 </a></li> <!--Número de la pág Tifox -->
+                        <li><a href="#">Ejemplo@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Atención al Cliente</h4>
+                    <ul>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Encuesta de Satisfacción</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Siguenos</h4>
+                    <div class="social-links">
+                        <a href="https://es-la.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+ <br><br>
+         <hr class="hr">
+             <p class="Copyright" >
+                 Sport One © 2024 - Todos los derechos reservados.
+             </p>
+        </div>
+   </footer>
+    <script src="js/script.js"></script>
     <script>
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
