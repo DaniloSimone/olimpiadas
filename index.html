@@ -1,0 +1,161 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+                .desplegable {
+            position: relative;
+            display: inline-block;
+        }
+
+        .opciones-desplegables {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .opciones-desplegables a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .opciones-desplegables a:hover {
+            background-color: #f1f1f1;
+            cursor:pointer;
+        }
+
+        .desplegable:hover .opciones-desplegables {
+            display: block;
+        }
+
+        .desplegable:hover .boton-desplegable {
+            background-color: #1b1d1c;
+            width: 70px;
+            height: 70px;
+        }
+
+        .boton-desplegable {
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+    <title>SportsOne</title>
+
+</head>
+<body>
+    <header>
+        <div class="header_top">
+            <div class="top1">
+                <img src="images/pol.jpg" alt="">
+            </div>
+            <div class="top2">
+                <div class="top2input">
+                    <input type="text" placeholder="Busque algo">
+                </div>
+                <div class="top2search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+            <div class="top4section">
+            </div>
+            <div class="top5section">
+                <div class="top5left">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+                <div class="top3right">
+                    <p>Bienvenido</p>
+                    <p><b>Inicia / Registrate</b></p>
+                </div>
+                <div class="top4extra">
+                    <div class="desplegable">
+                        <button class="boton-desplegable">▼</button>
+                        <div class="opciones-desplegables">
+                            <a href="#iniciar-sesion">Iniciar sesión</a>
+                            <a href="#registrarse">Registrarse</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <div class="top6section">
+            <div class="top5left">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <div class="top6right">
+                <div class="pcart">
+                    <p>0</p>
+                </div>
+                <p><b>Carrito</b></p>
+            </div>
+           </div>
+        </div>
+        <div class="header_btm">
+                <div class="catsec">
+                    <div class="dropdown">
+                        <button class="dropbtn">Todas las Categorías</button>
+                        <div class="dropdown-content">
+                            <div class="dropdown-section">
+                                <a href="#">Electrónica</a>
+                                <a href="#">Ropa</a>
+                                <a href="#">Hogar</a>
+                                <a href="#">Juguetes</a>
+                                <a href="#">Deportes</a>
+                            </div>
+                            <div class="dropdown-section">
+                                <a href="#">Belleza</a>
+                                <a href="#">Salud</a>
+                                <a href="#">Automóviles</a>
+                                <a href="#">Herramientas</a>
+                                <a href="#">Jardín</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="">
+                <div class="btm3 btmHover">
+                    <p>Novedades</p>
+                </div>
+                </a>
+                <a href="">
+                <div class="btm4 btmHover">
+                    <p>Marcas</p>
+                </div>
+                </a>
+                <a href="">
+                <div class="btm5 btmHover">
+                    <p>Ayuda</p>
+                </div>
+                </a>
+                <a href="">
+                <div class="btm6 btmHover">
+                    <p>Sobre Nosotros</p>
+                </div>
+                </a>
+                <div class="btm7 btmHover">
+                    <div class="barra-navegacion">
+                        <div class="menu-desplegable">
+                            <button class="boton-desplegable">Más</button>
+                            <div class="contenido-desplegable">
+                                <a href="#">Centro de Mensajes</a>
+                                <a href="#">Mis Pedidos</a>
+                                <a href="#">Lista de Deseos</a>
+                                <a href="#">Configuración</a>
+                                <a href="#">Ayuda</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </header>
+    <script src="script.js"></script>
+</body>
+</html>
