@@ -4,8 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="footer.css">
     <style>
-                .desplegable {
+        .desplegable {
             position: relative;
             display: inline-block;
         }
@@ -17,18 +18,20 @@
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
+            border-radius: 8px;
         }
 
         .opciones-desplegables a {
             color: black;
             padding: 12px 16px;
             text-decoration: none;
-            display: block;
+            display: block;            border-radius: 8px;
         }
 
         .opciones-desplegables a:hover {
             background-color: #f1f1f1;
             cursor:pointer;
+            border-radius: 8px;
         }
 
         .desplegable:hover .opciones-desplegables {
@@ -48,6 +51,20 @@
             border: none;
             cursor: pointer;
         }
+
+        .transparent-button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .transparent-button i {
+            width: 100%;
+            height: 100%;
+        }
+
     </style>
     <title>SportsOne</title>
 
@@ -59,11 +76,15 @@
                 <img src="images/pol.jpg" alt="">
             </div>
             <div class="top2">
-                <div class="top2input">
-                    <input type="text" placeholder="Busque algo">
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Busque algo">
+                        <div id="suggestions" class="suggestions"></div>
                 </div>
                 <div class="top2search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <button id="search-button" class="transparent-button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+
                 </div>
             </div>
             <div class="top4section">
@@ -86,6 +107,7 @@
                     </div>
                 </div>
             </div>
+            <a href="carrito.html">
            <div class="top6section">
             <div class="top5left">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -97,6 +119,7 @@
                 <p><b>Carrito</b></p>
             </div>
            </div>
+            </a>
         </div>
         <div class="header_btm">
                 <div class="catsec">
@@ -156,6 +179,49 @@
                 </div>
         </div>
     </header>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Sport One</h4>
+                    <ul>
+                        <li><a href="#">Sobre nosotros</a></li>
+                        <li><a href="#">Politica de Privacidad</a></li>
+                     <li><a href="#">Terminos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contactanos</h4>
+                    <ul>
+                        <li><a href="#"> +54 9 11 3408-7695 </a></li> <!--Número de la pág Tifox -->
+                        <li><a href="#">Ejemplo@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Atención al Cliente</h4>
+                    <ul>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Encuesta de Satisfacción</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Siguenos</h4>
+                    <div class="social-links">
+                        <a href="https://es-la.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+ <br><br>
+         <hr class="hr">
+             <p class="Copyright" >
+                 Sport One © 2024 - Todos los derechos reservados.
+             </p>
+        </div>
+   </footer>
     <script src="script.js"></script>
 </body>
 </html>

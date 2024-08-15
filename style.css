@@ -22,6 +22,17 @@ a {
     background: #191919;
 }
 
+@media(max-width: 767px){
+    .header_top{
+      width: 50%;
+      margin-bottom: 30px;
+  }
+  }
+  @media(max-width: 574px){
+    .header_top{
+      width: 100%;
+  }
+  }
 
 .top1{
     width: 256px;
@@ -367,4 +378,41 @@ a {
 .btmHover:hover{
     background-color: #535353;
     border-radius: 60px;
+}
+
+.search-container {
+    position: relative;
+    width: 450px;
+    height: 40px;
+    display: flex;
+    padding-left: 25px;
+}
+
+#search-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 1000;
+    display: none;
+    border-radius: 8px;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+    border-radius: 8px;
 }
