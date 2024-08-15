@@ -108,8 +108,7 @@
             <div class="additional-info">Llega gratis mañana</div>
             <div class="additional-info">Devolución en los próximos 30 días</div>
             <div class="buttons-container">
-                <a href="#" class="buy-button">Añadir al carrito</a>
-                <a href="#" class="buy-now-button">Comprar ahora</a>
+                <button href="#" class="buy-button">Añadir al carrito</button>
                 <div class="stock-counter" id="stock-counter">Stock: <span id="stock-quantity">0</span>
             </div>
         </div>
@@ -137,32 +136,5 @@
  </div>
    
 
-    <script>
-        function updateStock() {
-            const xhr = new XMLHttpRequest();
-            xhr.open('GET', 'danilobbhermoso.php?product_id=1', true);
-            xhr.onload = function() {
-                if (this.status === 200) {
-                    const stockQuantity = parseInt(this.responseText, 10);
-                    const stockCounter = document.getElementById('stock-counter');
-                    const stockQuantityElement = document.getElementById('stock-quantity');
-                    stockQuantityElement.textContent = stockQuantity;
-
-                    if (stockQuantity === 0) {
-                        stockCounter.classList.add('stock-low');
-                        stockCounter.classList.remove('stock-medium', 'stock-high');
-                    } else if (stockQuantity > 0 && stockQuantity <= 5) {
-                        stockCounter.classList.add('stock-medium');
-                        stockCounter.classList.remove('stock-low', 'stock-high');
-                    } else {
-                        stockCounter.classList.add('stock-high');
-                        stockCounter.classList.remove('stock-low', 'stock-medium');
-                    }
-                }
-            };
-            xhr.send();
-        }
-        window.onload = updateStock;
-    </script>
 </body>
 </html>
