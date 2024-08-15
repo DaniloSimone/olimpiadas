@@ -115,8 +115,8 @@ form input[type="submit"] {
   font-weight: 500;
   cursor: pointer;
 }
-.form.login input[type="submit"] {
-  background: #625984;
+  .form.login input[type="submit"] {
+    background: #625984;
   color: #fff;
   border: none;
 
