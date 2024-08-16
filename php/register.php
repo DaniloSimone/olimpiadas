@@ -6,9 +6,9 @@ require "jwt.php";
 try{
 session_start();
 require "conex.php";
-$mail = "danilo@danilo.com";
-$nombre = "gustavo";
-$contrasena = "empanada de verdura  ";
+$mail = $_POST["mail"];
+$nombre = $_POST["nombre"];
+$contrasena = $_POST["contrasena"];
 
 $consulta = "SELECT * from usuario where mail='$mail' and nombre='$nombre' ";
 $query = mysqli_query($conex, $consulta);
@@ -32,8 +32,8 @@ while($fetch = mysqli_fetch_assoc($query)){
             "mail" => $fetch["mail"]
         ];
     }
-    $jwtid = new JWT("definitivousuariovalidada");
-    $tokenid = $jwt->encode($codigo);
+    $jwtid = new JWT("supercontrasena");
+    $tokenid = $jwtid->encode($usuario);
     echo json_encode($tokenid);
   
 }

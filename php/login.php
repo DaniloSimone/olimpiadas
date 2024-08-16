@@ -6,14 +6,14 @@ require "jwt.php";
 try{
 session_start();
 require "conex.php";
-$mail = "danilo@danilo.com";
-$contrasena = "empanada de verdura  ";
+$mail = $_POST["mail"];
+$contrasena = $_POST["contrasena"];
 $codigo = [
     "contrasena" => $contrasena,
 ];
 $jwt = new JWT("definitivocontrasenanovalidada");
 $token = $jwt->encode($codigo);
-$consulta = "SELECT * FROM `usuario` WHERE contrasena = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250cmFzZW5hIjoiZW1wYW5hZGEgZGUgdmVyZHVyYSAgIn0.YMbu_byELOXbWfqGJ11lWuwOrc9koFqE7wUUyfJ10ko' AND mail ='danilo@danilo.com';";
+$consulta = "SELECT * FROM `usuario` WHERE contrasena = '$token' AND mail ='$mail';";
 $query = mysqli_query($conex, $consulta);
 if(mysqli_num_rows($query)){
 while($fetch = mysqli_fetch_assoc($query)){

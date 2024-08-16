@@ -12,12 +12,12 @@
 
     <body>
     <section class="wrapper">
-      <div class="form signup">
+      <div class="form signup register">
         <header>Registrarse</header>
         <form action="#">
-          <input type="text" placeholder="Nombre" required />
-          <input type="mail" placeholder="Email" required />
-          <input type="password" placeholder="Contraseña" required />
+          <input type="text" class="registernombre" placeholder="Nombre" required />
+          <input type="mail" class="registermail" placeholder="Email" required />
+          <input type="password" class="registercontrasena" placeholder="Contraseña" required />
           <div class="checkbox">
             <input type="checkbox" id="signupCheck" required />
             <label for="signupCheck">Acepto todos los terminos y condiciones </label>
@@ -28,8 +28,8 @@
       <div class="form login">
         <header>Iniciar sesion</header>
         <form action="#">
-          <input type="text" placeholder="Email" required />
-          <input type="password" placeholder="Contraseña" required />
+          <input type="text" class="loginnombre" placeholder="Email" required />
+          <input type="password" class="logincontrasena" placeholder="Contraseña" required />
           <input type="submit" value="Inicia Sesión" />
         </form>
       </div>
@@ -44,6 +44,7 @@
           wrapper.classList.remove("active");
         });
       </script>
+      <script src="js/login.js"></script>
     </section>
   </body>
 </html>
