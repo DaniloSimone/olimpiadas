@@ -9,7 +9,7 @@
 <h2>Instalación</h2>
     <ol>
         <li><strong>Descargar el Proyecto:</strong>
-            <p>Descarga el archivo ZIP <code>Olimpiadas INET.rar</code> y descomprímelo en tu máquina.</p>
+            <p>Descarga el archivo RAR <code>Olimpiadas INET.rar</code> y descomprímelo en tu máquina.</p>
         </li>
         <li><strong>Configurar la Base de Datos:</strong>
             <p>Importar el archivo <code>olimpiadas.sql</code> a tu base de datos MySQL.</p>
