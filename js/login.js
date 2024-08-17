@@ -32,7 +32,7 @@ let forml = document.querySelector('.login');
 })
     forml.addEventListener('submit', (e) => {
         e.preventDefault();
-      let nombre = document.querySelector('.loginnombre').value;
+      let mail = document.querySelector('.loginmail').value;
       let contrasena = document.querySelector('.logincontrasena').value; 
       const login = async ()=>{
         let request = await fetch(`php/login.php`, {
@@ -41,7 +41,7 @@ let forml = document.querySelector('.login');
           },
           method: "POST",
           body: JSON.stringify({
-            nombre, contrasena
+            mail, contrasena
           }),
           credentials: 'include'  
         });

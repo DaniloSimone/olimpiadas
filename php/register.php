@@ -27,7 +27,7 @@ while($fetch = mysqli_fetch_assoc($query)){
     $querytres = mysqli_query($conex, $consultatres);
     while($fetch = mysqli_fetch_assoc($querytres)){
         $usuario = [
-            "pkusuario" => $fetch["usuario"],
+            "pkusuario" => $fetch["pkusuario"],
             "nombre" => $fetch["nombre"],
             "mail" => $fetch["mail"]
         ];

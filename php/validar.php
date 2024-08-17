@@ -17,7 +17,7 @@ require "jwt.php";
 //"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250cmFzZW5hIjoiZW1wYW5hZGEgZGUgdmVyZHVyYSAgIn0.YMbu_byELOXbWfqGJ11lWuwOrc9koFqE7wUUyfJ10ko"
 function authenticateJWTToken(): array|bool
 {
-    if (!preg_match("/^Bearer\s+(.*)$/", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250cmFzZW5hIjoiZ3VzdGF2byJ9.W-nhNQxiGDfnGC_FJ2acPHzyrnvf2hGQas5N7b_FmmM" , $matches)) {
+    if (!preg_match("/^Bearer\s+(.*)$/",$_SERVER["HTTP_AUTHORIZATION"],$matches)) {
         http_response_code(400);
         echo json_encode(["message" => "incomplete authorization header"]);
         return false;
@@ -43,5 +43,5 @@ function authenticateJWTToken(): array|bool
 
 $sessionData = authenticateJWTToken();
 $pkusuario = $sessionData["pkusuario"];
-var_dump($sessionData)
+var_dump($sessionData);
 ?>
