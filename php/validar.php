@@ -1,5 +1,5 @@
 <?php
-$allowedOrigin = 'http://localhost:3000';
+$allowedOrigin = 'http://localhost:80';
 if (isset($_SERVER['HTTP_ORIGIN']) && $_SERVER['HTTP_ORIGIN'] === $allowedOrigin){
     header("Access-Control-Allow-Origin: $allowedOrigin");
     header("Access-Control-Allow-Credentials: true");
@@ -43,5 +43,4 @@ function authenticateJWTToken(): array|bool
 
 $sessionData = authenticateJWTToken();
 $pkusuario = $sessionData["pkusuario"];
-var_dump($sessionData);
 ?>

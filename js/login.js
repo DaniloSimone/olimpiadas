@@ -24,7 +24,6 @@ let forml = document.querySelector('.login');
             }
         }
         localStorage.setItem("usuariosesion", response);
-        debugger;
         console.log(localStorage.getItem("usuariosesion"));
         document.location.href = "./index.html"
       }
@@ -32,7 +31,7 @@ let forml = document.querySelector('.login');
 })
     forml.addEventListener('submit', (e) => {
         e.preventDefault();
-      let mail = document.querySelector('.loginmail').value;
+      let nombre = document.querySelector('.loginnombre').value;
       let contrasena = document.querySelector('.logincontrasena').value; 
       const login = async ()=>{
         let request = await fetch(`php/login.php`, {
@@ -41,7 +40,7 @@ let forml = document.querySelector('.login');
           },
           method: "POST",
           body: JSON.stringify({
-            mail, contrasena
+            nombre, contrasena
           }),
           credentials: 'include'  
         });
@@ -54,6 +53,7 @@ let forml = document.querySelector('.login');
         }
         localStorage.setItem("usuariosesion", response);
         console.log(localStorage.getItem("usuariosesion"));
+        document.location.href = "./index.html"
     }
     login()
 })
