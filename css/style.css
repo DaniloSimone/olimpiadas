@@ -14,6 +14,7 @@ a {
   }
 header{
  width: 100%;
+ flex: 1;
 }
 .header_top{
     height: 72px;

@@ -19,6 +19,22 @@ if(localStorage.getItem("usuariosesion")){
     document.querySelector(".contenido-desplegable").innerHTML += `<a onclick="cerrarsesion()">Cerrar Sesion</a>`;
   }
   nombre();
+  
+  const numerocarrito = async ()=>{
+    let request = await fetch('php/unidadcarrito.php', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
+      },
+      method: "POST",
+      body: JSON.stringify({}),
+      credentials: 'include'  
+    });
+    var info = await request.json();
+    console.log(info);
+    document.querySelector(".carrito_numero").innerHTML = info
+  }
+  numerocarrito();
 
 }else{
 }

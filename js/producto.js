@@ -1,5 +1,6 @@
 let get = new URLSearchParams(location.search);
 let nombre = get.get('nombre');
+document.querySelector("#search-input").value = nombre
 console.log(nombre)
 const bproducto = async ()=>{
     let request = await fetch(`php/mostrarproductos.php?nombre=${nombre}`, {
@@ -93,6 +94,7 @@ const bproducto = async ()=>{
             this.innerHTML = "Agregado"
             }
           carrito()
+          numerocarrito();
     })
 });
 }
