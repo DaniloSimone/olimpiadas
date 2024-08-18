@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/carrito.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/modal.css">
     <title>Carrito</title>
     <style>
         
@@ -109,6 +110,18 @@
         </div>
     </header>
 
+    <dialog class="dialog" id="dialog">
+        <div class="cuerpo_modal">
+            <h2>Ubicacion del envio.</h2>
+            <form class="formulario_modal">
+                <input type="text" required placeholder="Calle" name="" id="" class="modal_input">
+                <input type="text" placeholder="Piso" name="" id="" class="modal_input">
+                <input type="text" required placeholder="Localidad" name="" id="" class="modal_input">
+                <input type="text" required placeholder="Codigo Postal" name="" id="" class="modal_input">
+                <input type="submit" value="Guardar" class="modal_input">
+            </form>
+        </div>
+    </dialog>
 
     <div class="cart-container">
         <h1>Carrito de Compras</h1>

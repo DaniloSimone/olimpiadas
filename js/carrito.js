@@ -59,7 +59,7 @@ function modificarcarrito(pkcarrito, cantidad){
     const continueShoppingButton = document.querySelector('.continue-shopping-btn');
     const incrementButtons = document.querySelectorAll('.increment-btn');
     const decrementButtons = document.querySelectorAll('.decrement-btn');
-
+    const form = document.querySelector(".formulario_modal")
 
     removeButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -145,6 +145,15 @@ function modificarcarrito(pkcarrito, cantidad){
         checkoutButton.disabled = total === 0;
     }
     updateTotal();
+
+    checkoutButton.addEventListener('click',(e) =>{
+        console.log("hola")
+        dialog.showModal()  
+    })
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("hola")
+    })
 }
 nombre();
 });
