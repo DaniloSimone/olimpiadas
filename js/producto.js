@@ -37,7 +37,7 @@ const bproducto = async ()=>{
         <div class="additional-info">Llega gratis mañana</div>
         <div class="additional-info">Devolución en los próximos 30 días</div>
         <div class="buttons-container">
-            <button  disabled class="buy-button">SIN STOCK</button>
+            <button  disabled    class="buy-button">SIN STOCK</button>
             <div class="stock-counter" id="stock-counter">Stock: <span id="stock-quantity">0</span>
         </div>
     </div>
