@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+function modificarcarrito(pkcarrito, cantidad){
+    const numerocarrito = async ()=>{
+        let request = await fetch('php/cantidadcarrito.php', {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
+          },
+          method: "POST",
+          body: JSON.stringify({
+            pkcarrito, cantidad
+            }),
+          credentials: 'include'  
+        });
+        var info = await request.json();
+        if(info.status == 200){
+            console.log("Se modifico el carrito correctamente");
+        }
+        
+      }
+      numerocarrito();
+}
+    
     const nombre = async ()=>{
         let request = await fetch('php/mostrarcarrito.php', {
           headers: {
@@ -10,10 +32,27 @@ document.addEventListener('DOMContentLoaded', () => {
           credentials: 'include'  
         });
         var info = await request.json();
-        
+        let cosashtml = "";
         info.forEach(dato =>{
-            console.log("hola")
+            cosashtml += `
+            <div class="cart-items">
+            <div class="cart-item" data-price="${dato.precio}">
+                <img src="images/pol.jpg" alt="Producto 1">
+                <div class="item-details">
+                    <h2>${dato.nombre}</h2>
+                    <p class="price">$${dato.precio}</p>
+                    <div class="quantity-control">
+                    <button class="decrement-btn" dato-id=${dato.pkproducto}>-</button>
+                    <input type="number" dato-id=${dato.pkproducto} id=${dato.pkproducto} value="1" min="1" max="${dato.stock}">
+                    <button class="increment-btn"  dato-id=${dato.pkproducto} max='${dato.stock}'>+</button>
+                    </div>
+                </div>
+                <button class="remove-item" dato-id=${dato.pkproducto}>Eliminar</button>
+            </div>
+        </div>
+            `;
         })
+    document.querySelector('.cartas').innerHTML = cosashtml;
     const removeButtons = document.querySelectorAll('.remove-item');
     const quantityInputs = document.querySelectorAll('input[type="number"]');
     const checkoutButton = document.querySelector('.checkout-btn');
@@ -21,22 +60,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const incrementButtons = document.querySelectorAll('.increment-btn');
     const decrementButtons = document.querySelectorAll('.decrement-btn');
 
+
     removeButtons.forEach(button => {
         button.addEventListener('click', () => {
+            let id = button.getAttribute('dato-id');
+            const borrarcarrito = async ()=>{
+                let request = await fetch('php/borrarcarrito.php', {
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
+                  },
+                  method: "POST",
+                  body: JSON.stringify({
+                    id
+                    }),
+                  credentials: 'include'  
+                });
+                var info = await request.json();
+                if(info.status == 200){
+                    console.log("Se modifico el carrito correctamente");
+                }
+                
+              }
+            borrarcarrito();
             button.parentElement.remove();
             updateTotal();
+
         });
     });
 
     quantityInputs.forEach(input => {
         input.addEventListener('change', updateTotal);
+        input.addEventListener("change", (e) => {
+            if (parseInt(e.target.value) > parseInt(e.target.getAttribute('max'))) {
+                e.target.value = e.target.getAttribute('max');
+            }
+            if (parseInt(e.target.value) < parseInt(e.target.getAttribute('min'))) {
+                e.target.value = e.target.getAttribute('min');
+            }
+            modificarcarrito(e.target.getAttribute('dato-id'), e.target.value);
+            console.log(e.target.getAttribute('dato-id'));
+
+        });
     });
 
     incrementButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const input = button.previousElementSibling;
+            if(parseInt(button.previousElementSibling.value) < parseInt(button.getAttribute('max'))){
+                const input = button.previousElementSibling;
             input.value = parseInt(input.value) + 1;
             updateTotal();
+            modificarcarrito(button.getAttribute('dato-id'), document.getElementById(button.getAttribute('dato-id')).value);
+            }
+            
         });
     });
 
@@ -46,6 +122,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (input.value > 1) {
                 input.value = parseInt(input.value) - 1;
                 updateTotal();
+                modificarcarrito(button.getAttribute('dato-id'), document.getElementById(button.getAttribute('dato-id')).value);
+                console.log(button.getAttribute('dato-id'));
+                console.log();
             }
         });
     });

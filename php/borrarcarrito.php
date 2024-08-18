@@ -5,8 +5,8 @@ header('Content-Type: application/json; charset=utf-8');
 header( 'Access-Control-Allow-Origin: *' );
 $_POST =  json_decode(file_get_contents("php://input"), true);
 try{
-$pkcarrito = 1;
-$consulta = "DELETE from carrito where pkusuario='$pkcarrito' and pkcarrito='$pkcarrito'";
+$pkcarrito = $_POST["id"];
+$consulta = "DELETE from carrito where pkusuario='$pkusuario' and pkproducto='$pkcarrito'";
 $query = mysqli_query($conex,$consulta);
 if($query){
     echo json_encode("Se elimino el contenido");

@@ -5,9 +5,9 @@ header('Content-Type: application/json; charset=utf-8');
 header( 'Access-Control-Allow-Origin: *' );
 $_POST =  json_decode(file_get_contents("php://input"), true);
 try{
-$pkcarrito = 1;
-$cantidad = 2;
-$consulta = "UPDATE `carrito` SET `cantidad`='$cantidad' WHERE pkcarrito='$pkcarrito' and pkusuario='$pkusuario'";
+$pkcarrito = $_POST["pkcarrito"];
+$cantidad = $_POST["cantidad"];
+$consulta = "UPDATE `carrito` SET `cantidad`='$cantidad' WHERE pkproducto='$pkcarrito' and pkusuario='$pkusuario'";
 $query = mysqli_query($conex,$consulta);
 if($query){
     echo json_encode("Se actualizo la cantidad correctamente");

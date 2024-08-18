@@ -15,6 +15,7 @@ if(mysqli_num_rows($query)){
             'nombre' => $fetch['nombre'],
             'descripcion' => $fetch['descripcion'],
             'precio' => $fetch['precio'],  
+            'stock' => $fetch['stock'],
         );
     };
     echo json_encode($json);   
