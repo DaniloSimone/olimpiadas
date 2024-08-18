@@ -7,7 +7,7 @@ $_POST =  json_decode(file_get_contents("php://input"), true);
 try{
 $consulta = "SELECT carrito.*, producto.* FROM `carrito` INNER JOIN producto ON carrito.pkproducto = producto.pkproducto WHERE carrito.pkusuario = '$pkusuario';";
 $query = mysqli_query($conex,$consulta);
-if($query){
+if(mysqli_num_rows($query)){
     while($fetch = mysqli_fetch_assoc($query)){
         $json[] = array(
             'pkproducto' => $fetch['pkproducto'],
@@ -16,8 +16,8 @@ if($query){
             'descripcion' => $fetch['descripcion'],
             'precio' => $fetch['precio'],  
         );
-        echo json_encode($json);   
-    }
+    };
+    echo json_encode($json);   
 }else{
     throw new Exception("No se encontro nada", 404);
 }

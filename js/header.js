@@ -1,7 +1,9 @@
+
 function cerrarsesion() {
   localStorage.removeItem("usuariosesion");
   document.location.href = "./index.html";
 }
+
 if(localStorage.getItem("usuariosesion")){
   const nombre = async ()=>{
     let request = await fetch('php/nombre.php', {

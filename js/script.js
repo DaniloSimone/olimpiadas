@@ -13,60 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const removeButtons = document.querySelectorAll('.remove-item');
-    const quantityInputs = document.querySelectorAll('input[type="number"]');
-    const checkoutButton = document.querySelector('.checkout-btn');
-    const continueShoppingButton = document.querySelector('.continue-shopping-btn');
-    const incrementButtons = document.querySelectorAll('.increment-btn');
-    const decrementButtons = document.querySelectorAll('.decrement-btn');
 
-    removeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            button.parentElement.remove();
-            updateTotal();
-        });
-    });
-
-    quantityInputs.forEach(input => {
-        input.addEventListener('change', updateTotal);
-    });
-
-    incrementButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const input = button.previousElementSibling;
-            input.value = parseInt(input.value) + 1;
-            updateTotal();
-        });
-    });
-
-    decrementButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const input = button.nextElementSibling;
-            if (input.value > 1) {
-                input.value = parseInt(input.value) - 1;
-                updateTotal();
-            }
-        });
-    });
-
-    continueShoppingButton.addEventListener('click', () => {
-        window.location.href = 'index.html';
-    });
-
-    function updateTotal() {
-        let total = 0;
-        const items = document.querySelectorAll('.cart-item');
-        items.forEach(item => {
-            const price = parseFloat(item.getAttribute('data-price'));
-            const quantity = item.querySelector('input[type="number"]').value;
-            total += price * quantity;
-        });
-        document.querySelector('.total-price').textContent = `$${total.toFixed(2)}`;
-        checkoutButton.disabled = total === 0;
-    }
-    updateTotal();
-});
 
 const searchInput = document.getElementById('search-input');
 const suggestionsContainer = document.getElementById('suggestions');
