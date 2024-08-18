@@ -122,8 +122,3 @@ function performSearch(query) {
 
 }
 
-document.addEventListener('click', (event) => {
-    if (!searchInput.contains(event.target) && !suggestionsContainer.contains(event.target)) {
-        suggestionsContainer.style.display = 'none';
-    }
-});

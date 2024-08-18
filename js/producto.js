@@ -51,7 +51,7 @@ const bproducto = async ()=>{
         <div class="additional-info">Llega gratis mañana</div>
         <div class="additional-info">Devolución en los próximos 30 días</div>
         <div class="buttons-container">
-            <button class="buy-button carrito">Añadir al carrito</button>
+            <button class="buy-button carrito_compra" data-id='${dato.pkproducto}'>Añadir al carrito</button>
             <div class="stock-counter" id="stock-counter">Stock: <span id="stock-quantity">${dato.stock}</span>
         </div>
     </div>
@@ -63,5 +63,39 @@ const bproducto = async ()=>{
        
     });
     document.querySelector(".producto").innerHTML = producto
+    document.querySelectorAll('.carrito_compra').forEach(btn=>{btn.addEventListener('click', function() {
+        if(!localStorage.getItem("usuariosesion")){
+            document.location.href = "./index.html";
+        }
+        let id = this.getAttribute("data-id")
+        console.log(id);
+        const carrito = async ()=>{
+            let request = await fetch('php/carrito.php', {
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
+              },
+              method: "POST",
+              body: JSON.stringify({
+                id
+              }),
+              credentials: 'include'  
+            });
+            var info = await request.json();
+            console.log(info);
+            if(request.status != 200){
+                if(request.status == 400){
+                    this.innerHTML = "En Carrito"
+                    return
+                }
+                return
+            }
+            this.innerHTML = "Agregado"
+            }
+          carrito()
+    })
+});
 }
 bproducto()
+
+

@@ -5,14 +5,19 @@ header('Content-Type: application/json; charset=utf-8');
 header( 'Access-Control-Allow-Origin: *' );
 $_POST =  json_decode(file_get_contents("php://input"), true);
 try{
-$pkproducto = 1;
-$cantidad = 2;
-$consulta = "INSERT INTO `carrito`(`pkusuario`, `pkproducto`, `cantidad`) VALUES ('$pkusuario','$pkproducto','$cantidad')";
+$pkproducto = $_POST["id"];
+$consultac = "SELECT * from carrito where pkusuario='$pkusuario' and pkproducto='$pkproducto'";
+$queryc = mysqli_query($conex, $consultac);
+if(mysqli_num_rows($queryc)){
+    throw new Exception("Ya existe ese producto en el carrito", 400);
+}else{
+$consulta = "INSERT INTO `carrito`(`pkusuario`, `pkproducto`, `cantidad`) VALUES ('$pkusuario','$pkproducto','1')";
 $query = mysqli_query($conex,$consulta);
 if($query){
     echo json_encode("Se subio al carrito");
 }else{
     throw new Exception("Hubo un error", 401);
+}
 }
 }catch(Error $e){
     http_response_code(500);
