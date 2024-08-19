@@ -148,11 +148,54 @@ function modificarcarrito(pkcarrito, cantidad){
 
     checkoutButton.addEventListener('click',(e) =>{
         console.log("hola")
-        dialog.showModal()  
+        const veriubi = async ()=>{
+            let request = await fetch('php/coseguirubi.php', {
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
+              },
+              method: "POST",
+              body: JSON.stringify({
+                }),
+              credentials: 'include'  
+            });
+            let info = await request.json();
+            if(request.status == 200){
+                document.location.href = "./confirm-compra.html";
+                return
+            }
+            dialog.showModal() 
+        }
+          veriubi();
+        
     })
     form.addEventListener("submit", (e) => {
         e.preventDefault();
-        console.log("hola")
+        let calle = document.querySelector('.calle').value;
+        let piso = document.querySelector('.piso').value;
+        let localidad = document.querySelector('.localidad').value;
+        let codigo = document.querySelector('.codigo').value;
+        const agregarubi = async ()=>{
+            let request = await fetch('php/ubicacion.php', {
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
+              },
+              method: "POST",
+              body: JSON.stringify({
+                calle, piso, localidad, codigo
+                }),
+              credentials: 'include'  
+            });
+            var info = await request.json();
+            if(info.status =! 200){
+                console.log("Hubo un error");
+                return
+            }
+            console.log("Ubicacion guardada correctamente")
+          }
+          agregarubi();
+
     })
 }
 nombre();

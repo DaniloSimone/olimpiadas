@@ -5,16 +5,20 @@ header('Content-Type: application/json; charset=utf-8');
 header( 'Access-Control-Allow-Origin: *' );
 $_POST =  json_decode(file_get_contents("php://input"), true);
 try{
-$localidad = $_POST["localidad"];
-$codigop = $_POST["codigo"];
-$calle = $_POST["calle"];
-$piso = $_POST["piso"];
-$consulta = "INSERT INTO `ubicacionu`(`pkusuario`, `localidad`, `codigop`, `calle`, `piso`) VALUES ('$pkusuario','$localidad','$codigop','$calle','$piso')";
+$consulta = "SELECT * FROM `ubicacionu` WHERE pkusuario = '$pkusuario' ORDER BY pkubicacionu DESC LIMIT 1"; 
 $query = mysqli_query($conex,$consulta);
-if($query){
-    echo json_encode("Se cargo la ubicacion");
+if(mysqli_num_rows($query)){
+    while($fetch = mysqli_fetch_assoc($query)){
+        $json[] = array(
+            'localidad' => $fetch['localidad'],
+            'codigop' => $fetch['codigo'],
+            'calle' => $fetch['calle'],
+            'piso' => $fetch['piso'],
+        );
+    }
+    echo json_encode($json);
 }else{
-    throw new Exception("Hubo un error", 401);
+    throw new Exception("No se encontro nada", 404);
 }
 }catch(Error $e){
     http_response_code(500);
