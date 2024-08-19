@@ -41,6 +41,25 @@ const miscompra = async ()=>{
     document.querySelector(".cosas").innerHTML = comprahtml;
     document.querySelectorAll('.botonproductos').forEach(btn=>{btn.addEventListener('click', function() {
       let id = this.getAttribute("data-id")
+      const misproductos = async ()=>{
+        let request = await fetch('php/misproductos.php', {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
+          },
+          method: "POST",
+          body: JSON.stringify({
+            pkcarrito, cantidad
+            }),
+          credentials: 'include'  
+        });
+        var info = await request.json();
+        if(request.status == 200){
+            console.log("Se modifico el carrito correctamente");
+        }
+        
+      }
+      misproductos();
     })
     });
 }
