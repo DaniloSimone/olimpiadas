@@ -28,5 +28,23 @@ const carrito = async ()=>{
     document.querySelector(".product-list").innerHTML = carritohtml;
     document.querySelector(".total-price").innerHTML = `$${totaltotal}`;
 }
+carrito();
 
-  carrito();
+const ubicacion = async ()=>{
+    let request = await fetch('php/mostrarcarrito.php', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
+      },
+      method: "POST",
+      body: JSON.stringify({
+        }),
+      credentials: 'include'  
+    });
+    let info = await request.json();
+    if(request.status =! 200){
+        console.log("hubo un error")
+    }
+    
+}
+ubicacion();
