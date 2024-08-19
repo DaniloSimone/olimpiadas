@@ -11,7 +11,7 @@ if(mysqli_num_rows($query)){
     while($fetch = mysqli_fetch_assoc($query)){
         $json[] = array(
             'localidad' => $fetch['localidad'],
-            'codigop' => $fetch['codigo'],
+            'codigop' => $fetch['codigop'],
             'calle' => $fetch['calle'],
             'piso' => $fetch['piso'],
         );

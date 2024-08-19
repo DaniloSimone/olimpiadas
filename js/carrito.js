@@ -13,7 +13,7 @@ function modificarcarrito(pkcarrito, cantidad){
           credentials: 'include'  
         });
         var info = await request.json();
-        if(info.status == 200){
+        if(request.status == 200){
             console.log("Se modifico el carrito correctamente");
         }
         
@@ -193,6 +193,7 @@ function modificarcarrito(pkcarrito, cantidad){
                 return
             }
             console.log("Ubicacion guardada correctamente")
+            document.location.href = "./confirm-compra.html";c
           }
           agregarubi();
 

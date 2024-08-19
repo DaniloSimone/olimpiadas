@@ -31,7 +31,7 @@ const carrito = async ()=>{
 carrito();
 
 const ubicacion = async ()=>{
-    let request = await fetch('php/mostrarcarrito.php', {
+    let request = await fetch('php/coseguirubi.php', {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
@@ -45,6 +45,15 @@ const ubicacion = async ()=>{
     if(request.status =! 200){
         console.log("hubo un error")
     }
-    
+    let ubihtlm = '';
+    info.forEach(dato => {
+        ubihtlm += `
+        Calle:${dato.calle} <br>
+        Piso:${dato.piso} <br>
+        Localidad:${dato.localidad} <br>  
+        Codigo Postal:${dato.codigop}
+        `
+    });
+    document.querySelector(".location").innerHTML = ubihtlm;
 }
 ubicacion();
