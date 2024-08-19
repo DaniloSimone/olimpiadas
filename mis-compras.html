@@ -12,11 +12,25 @@
     </style>
 </head>
 <body>
-<dialog class="dialog" id="dialog">
-<div class="div_dialog">
-    <h2>¡Compra Exitosa!</h2>
-    <button class="botonpagar" id="close-button">Cerrar</button>
-</div>
+<dialog>
+    <div class="div_dialog">
+        <h2 class="sub_modal"> Productos</h2>
+        <ul class="product-list lista_modal">
+            <li>Producto 1</li>
+            <li>Producto 1</li>
+            <li>Producto 1</li>
+            <li>Producto 1</li>
+            <li>Producto 1</li>
+            <li>Producto 1</li>
+            <li>Producto 1</li>
+            <li>Producto 1</li>
+            <li>Producto 1</li>
+            <li>Producto 1</li>
+            <li>Producto 1</li>
+
+        </ul>
+        <button class="botonpagar" type="submit" id="submit-button">Cerrar</button>
+    </div>
 </dialog>
     <header>
         <div class="header_top">
@@ -115,27 +129,42 @@
     </header>
     <div class="container_pagar">
         <div class="header">
-            <h1>Confirmación de Compra</h1>
+            <h1>TODAS MIS COMPRAS</h1>
         </div>
+        <div class="cosas">
         <div class="form-container">
-            
-                <label for="product-names">Nombres de los Productos:</label>
-                <ul class="product-list">
-                <li>Producto 1</li>
-                </ul>
-
+                <label for="product-names">
+                Numero de compra: 1 <br>
+                <b>Estado: En camino</b></label>
                 <label for="total-price">Precio Total de la Compra:</label>
                 <p class="p_pagar total-price">$1.500,00</p>
-
                 <label for="ubicacion">Ubicación:</label>
                 <p class="p_pagar location">
                 xxxxx
                 </p>
-
                 <div class="button-container">
-                    <button class="botonpagar" type="submit" id="submit-button">Pagar</button>
+                    <button class="botonpagar" type="submit" id="submit-button">Ver productos</button>
+                    <button class="botonpagar" type="submit" id="submit-button">Cancelar Compra</button>
                 </div>
            
+        </div>
+        
+        <div class="form-container">
+            <label for="product-names">
+            Numero de compra: 1 <br>
+            <b>Estado: En camino</b></label>
+            <label for="total-price">Precio Total de la Compra:</label>
+            <p class="p_pagar total-price">$1.500,00</p>
+            <label for="ubicacion">Ubicación:</label>
+            <p class="p_pagar location">
+            xxxxx
+            </p>
+            <div class="button-container">
+                <button class="botonpagar" type="submit" id="submit-button">Ver productos</button>
+                <button class="botonpagar" type="submit" id="submit-button">Cancelar Compra</button>
+            </div>
+       
+    </div>
         </div>
     </div>
     <footer class="footer">
@@ -180,8 +209,8 @@
              </p>
         </div>
    </footer>
+    <script src="js/miscompras.js"></script>
     <script src="js/script.js"></script>
     <script src="js/header.js"></script>
-<script src="js/confcomp.js"></script>
 </body>
 </html>

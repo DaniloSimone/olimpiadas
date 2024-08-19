@@ -31,6 +31,12 @@ body:has(dialog[open]) {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 45%;
+}
+.lista_modal{
+    height: 300px;
+    max-height: 300px;
+    overflow: auto;
 }
 .back-button {
     background-color: #007bff;
@@ -118,4 +124,9 @@ label {
 }
 .p_pagar{
     color: #000;
+}
+.cosas{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

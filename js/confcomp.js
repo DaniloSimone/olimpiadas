@@ -58,9 +58,14 @@ const ubicacion = async ()=>{
         `
     });
     document.querySelector(".location").innerHTML = ubihtlm;
+
 }
 
-document.querySelector(".botonpagar").addEventListener("click", (e)=>{
+
+ubicacion();
+
+document.querySelector(".confpagar").addEventListener("click", (e)=>{
+  console.log
   const crearcompra = async ()=>{
     let request = await fetch('php/crearcompra.php', {
       headers: {
@@ -81,8 +86,28 @@ document.querySelector(".botonpagar").addEventListener("click", (e)=>{
   }
   crearcompra();
 });
-ubicacion();
 
 document.querySelector("#close-button").addEventListener("click", (e)=>{
   document.location.href = "./index.html";
+  function modificarcarrito(pkcarrito, cantidad){
+    const numerocarrito = async ()=>{
+        let request = await fetch('php/cantidadcarrito.php', {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
+          },
+          method: "POST",
+          body: JSON.stringify({
+            pkcarrito, cantidad
+            }),
+          credentials: 'include'  
+        });
+        var info = await request.json();
+        if(request.status == 200){
+            console.log("Se modifico el carrito correctamente");
+        }
+        
+      }
+      numerocarrito();
+    }
 })
