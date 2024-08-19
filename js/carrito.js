@@ -188,7 +188,7 @@ function modificarcarrito(pkcarrito, cantidad){
               credentials: 'include'  
             });
             var info = await request.json();
-            if(request.status =! 200){
+            if(request.status != 200){
                 console.log("Hubo un error");
                 return
             }

@@ -11,19 +11,28 @@ $query = mysqli_query($conex,$consulta);
 if($query){
     while($fetch =   mysqli_fetch_assoc($query)){
         $ubicacion = $fetch["pkubicacionu"];
+        $localidad = $fetch["localidad"];
+        $codigop = $fetch["codigop"];
+        $calle = $fetch["calle"]; 
+        $piso = $fetch["piso"];
     };
-  $consultados = "INSERT INTO `compra`(`pkusuario`, `pkubicacionu`, `fecha`) VALUES ('$pkusuario','$ubicacion','$dia')";
+  $consultados = "INSERT INTO `compra`(`pkusuario`,`fecha`) VALUES ('$pkusuario','$dia')";
   $querydos = mysqli_query($conex, $consultados);
   if($querydos){
     $id = mysqli_insert_id($conex);
-    $consultatres = "SELECT * from carrito where pkusuario ='$pkusuario'";
+    $consultaavanzada = "INSERT INTO `compra_envio`(`pkcompra`, `localidad`, `codigop`, `calle`, `piso`) VALUES ('$id','$localidad','$codigop','$calle','$piso')";
+    $queryavanzada = mysqli_query($conex,$consultaavanzada);
+    $consultatres = "SELECT carrito.*, producto.precio from carrito INNER JOIN producto ON producto.pkproducto = carrito.pkproducto where pkusuario='$pkusuario'";
     $querytres = mysqli_query($conex,$consultatres);
     if($querytres){
         while($fetchdos = mysqli_fetch_assoc($querytres)){
             $pkproducto = $fetchdos["pkproducto"];
             $cantidad = $fetchdos["cantidad"];
-            $consultacuatro = "INSERT INTO `compra_producto`(pkproducto, pkcompra, cantidad) VALUES ('$pkproducto','$id','$cantidad')";
+            $precio = $fetchdos["precio"];
+            $consultacuatro = "INSERT INTO `compra_producto`(pkproducto, pkcompra, cantidad, precio) VALUES ('$pkproducto','$id','$cantidad', $precio)";
             $querycuatro = mysqli_query($conex, $consultacuatro);
+            $consultaavanzadados = "UPDATE producto SET stock = stock - $cantidad where pkproducto='$pkproducto'";
+            $queryavanzadados = mysqli_query($conex,$consultaavanzadados);
         };
         $consultacinco = "DELETE from carrito where pkusuario='$pkusuario'";
         $querycinco = mysqli_query($conex, $consultacinco);

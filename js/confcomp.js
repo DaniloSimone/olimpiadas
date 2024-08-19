@@ -13,8 +13,10 @@ const carrito = async ()=>{
       credentials: 'include'  
     });
     let info = await request.json();
-    if(request.status =! 200){
+    if(request.status != 200){
         console.log("hubo un error")
+        document.location.href = "./index.html";
+        return
     }
     let carritohtml = '';
     let totaltotal = 0
@@ -42,8 +44,9 @@ const ubicacion = async ()=>{
       credentials: 'include'  
     });
     let info = await request.json();
-    if(request.status =! 200){
+    if(request.status != 200){
         console.log("hubo un error")
+        return
     }
     let ubihtlm = '';
     info.forEach(dato => {
@@ -56,4 +59,30 @@ const ubicacion = async ()=>{
     });
     document.querySelector(".location").innerHTML = ubihtlm;
 }
+
+document.querySelector(".botonpagar").addEventListener("click", (e)=>{
+  const crearcompra = async ()=>{
+    let request = await fetch('php/crearcompra.php', {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
+      },
+      method: "POST",
+      body: JSON.stringify({}),
+      credentials: 'include'  
+    });
+    var info = await request.json();
+    if(request.status != 200){
+        console.log("Hubo un error");
+        return
+    }
+    console.log("Compra realizada correctamente")
+    dialog.showModal()
+  }
+  crearcompra();
+});
 ubicacion();
+
+document.querySelector("#close-button").addEventListener("click", (e)=>{
+  document.location.href = "./index.html";
+})
