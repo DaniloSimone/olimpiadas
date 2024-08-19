@@ -17,7 +17,6 @@ dialog[open]{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0009;
     z-index: 100000;
     overflow-y: hidden;
 }
@@ -32,6 +31,7 @@ body:has(dialog[open]) {
     flex-direction: column;
     gap: 20px;
     width: 45%;
+    outline: #000 solid 1px ;
 }
 .lista_modal{
     height: 300px;
@@ -129,4 +129,7 @@ label {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+.cancelardiv{
+    height: 360px;
 }

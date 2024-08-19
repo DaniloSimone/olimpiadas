@@ -49,19 +49,32 @@ const miscompra = async ()=>{
           },
           method: "POST",
           body: JSON.stringify({
-            pkcarrito, cantidad
+            id
             }),
           credentials: 'include'  
         });
         var info = await request.json();
-        if(request.status == 200){
-            console.log("Se modifico el carrito correctamente");
+        if(request.status != 200){
+            console.log("Hubo un error");
         }
-        
+        let productomodal = "";
+        info.forEach(dato => {
+          let total = dato.cantidad*dato.precio;
+          productomodal += `
+          <li>${dato.nombre} cantidad: x${dato.cantidad} precio u: ${dato.precio} TOTAL:$${total}</li>
+          `
+        });
+        document.querySelector(".lista_modal").innerHTML = productomodal;
       }
       misproductos();
+      modalp.showModal();
     })
     });
 }
+
 miscompra();
+document.querySelector(".cerrarmodal").addEventListener('click',(e)=>{
+
+  modalp.close()
   
+  })

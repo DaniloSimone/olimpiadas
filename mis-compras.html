@@ -12,7 +12,16 @@
     </style>
 </head>
 <body>
-<dialog>
+<dialog class="modalc" id="modalc">
+        <div class="div_dialog cancelardiv">
+            <h2 class="sub_modal"> Cancelar</h2>
+            <ul class="product-list lista_modal">
+                ¿Seguro que quieres cancelar esta compra?
+            </ul>
+            <button class="botonpagar " type="submit" id="submit-button">Si</button> <button class="botonpagar" type="submit" id="submit-button">No</button>
+        </div>
+    </dialog>
+<dialog class="modalp" id="modalp">
     <div class="div_dialog">
         <h2 class="sub_modal"> Productos</h2>
         <ul class="product-list lista_modal">
@@ -29,7 +38,7 @@
             <li>Producto 1</li>
 
         </ul>
-        <button class="botonpagar" type="submit" id="submit-button">Cerrar</button>
+        <button class="botonpagar   " type="submit" id="submit-button">Cerrar</button>
     </div>
 </dialog>
     <header>

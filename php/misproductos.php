@@ -5,7 +5,8 @@ header('Content-Type: application/json; charset=utf-8');
 header( 'Access-Control-Allow-Origin: *' );
 $_POST =  json_decode(file_get_contents("php://input"), true);
 try{
-$consulta = "SELECT carrito.*, producto.* FROM `carrito` INNER JOIN producto ON carrito.pkproducto = producto.pkproducto WHERE carrito.pkusuario = '$pkusuario';";
+$pkcompra = $_POST["id"];
+$consulta = "SELECT compra_producto.*, producto.nombre, compra.* FROM compra_producto INNER JOIN producto ON compra_producto.pkproducto = producto.pkproducto INNER JOIN compra ON compra.pkcompra = compra_producto.pkcompra WHERE compra.pkusuario = '$pkusuario' AND compra.pkcompra = '$pkcompra'; ";
 $query = mysqli_query($conex,$consulta);
 if(mysqli_num_rows($query)){
     while($fetch = mysqli_fetch_assoc($query)){
@@ -13,9 +14,7 @@ if(mysqli_num_rows($query)){
             'pkproducto' => $fetch['pkproducto'],
             'cantidad' => $fetch['cantidad'],
             'nombre' => $fetch['nombre'],
-            'descripcion' => $fetch['descripcion'],
-            'precio' => $fetch['precio'],  
-            'stock' => $fetch['stock'],
+            'precio' => $fetch['precio'],
         );
     };
     echo json_encode($json);   
