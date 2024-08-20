@@ -31,14 +31,28 @@ const miscompra = async ()=>{
                 </p>
                 <div class="button-container">
                     <button class="botonpagar botonproductos" data-id="${dato.pkcompra}" type="submit" id="submit-button">Ver productos</button>
-                    <button class="botonpagar" type="submit" id="submit-button">Cancelar Compra</button>
-                </div>
-           
-        </div>
         
         `
+        if(dato.estado == "Pendiente"){
+          comprahtml +=` 
+          <button class="botonpagar botoncancelar" data-id="${dato.pkcompra}" type="submit" id="submit-button">Cancelar Compra</button>
+          </div>
+        </div>
+          `
+        }else{
+          comprahtml += `
+          
+            </div>
+        </div>
+          `
+        }
     });
     document.querySelector(".cosas").innerHTML = comprahtml;
+    document.querySelectorAll(".botoncancelar").forEach(btn=>{btn.addEventListener('click', function(){
+      let id = this.getAttribute("data-id");
+      document.querySelector(".cancelardef").setAttribute("data-id", id);
+      modalc.showModal();
+    })})
     document.querySelectorAll('.botonproductos').forEach(btn=>{btn.addEventListener('click', function() {
       let id = this.getAttribute("data-id")
       const misproductos = async ()=>{
@@ -65,6 +79,7 @@ const miscompra = async ()=>{
           `
         });
         document.querySelector(".lista_modal").innerHTML = productomodal;
+        console.log("hola")
       }
       misproductos();
       modalp.showModal();
@@ -74,7 +89,34 @@ const miscompra = async ()=>{
 
 miscompra();
 document.querySelector(".cerrarmodal").addEventListener('click',(e)=>{
+modalp.close();
+}) 
+document.querySelector(".cerrarmodaldos").addEventListener('click',(e)=>{
+  modalc.close();
+}) 
+document.querySelector(".cancelardef").addEventListener('click',(e)=>{
+let id = document.querySelector(".cancelardef").getAttribute("data-id");
+console.log(id);
 
-  modalp.close()
-  
-  })
+  const cancelar = async ()=>{
+      let request = await fetch('php/cancelar.php', {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
+        },
+        method: "POST",
+        body: JSON.stringify({
+          id
+          }),
+        credentials: 'include'  
+      });
+      var info = await request.json();
+      if(request.status != 200){
+          console.log("Se modifico el carrito correctamente");
+      }
+      
+    }
+    cancelar()
+
+}
+) 
