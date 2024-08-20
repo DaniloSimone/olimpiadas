@@ -112,9 +112,9 @@ console.log(id);
       });
       var info = await request.json();
       if(request.status != 200){
-          console.log("Se modifico el carrito correctamente");
+          console.log("Hubo un error");
       }
-      
+      location.reload()
     }
     cancelar()
 
