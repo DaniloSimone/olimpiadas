@@ -1,0 +1,260 @@
+body{
+    background-color: #D9D9D9;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+   
+}
+body.dialog-open{
+    overflow: hidden;
+}
+h1{
+    text-align: center;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    padding: 20px;
+    border-bottom: 3px solid #333;
+    flex: 0;
+}
+
+dialog{
+    height: 100vh;
+    width: 100vw;
+    border: none;
+    overflow-y: hidden;
+    background-color: #0009;
+    position: fixed;
+    
+}
+
+dialog[open]{
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+h2{
+    margin: 0 0 15px 0;
+    padding: 0;
+}
+
+.todo{
+    display: flex;
+    
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+.contenido{
+    flex: 40;
+    display: flex;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+
+    background-color: #333;
+}
+
+.right{
+    flex: 1;
+    padding: 5px 5px 5px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.buscador_nuevo{
+    display: flex;
+    width: 100%;
+    padding: 10px 0 0 0;
+    justify-content: center;
+}
+.div_input{
+    flex: 1;
+}
+.div_nueva{
+    display: flex;
+}
+.buscar{
+   
+    padding: 5px 5px 5px 20px;
+    border-radius: 50px 0 0 50px;
+    border: 1px solid #333;
+    background-color: #D9D9D9;
+    font-size: 1.4em;
+    width: 100%;
+    border-right: none;
+}
+.buscar:focus {
+    outline: none;
+    border: 1px solid #333;
+}
+.nueva{
+    border: none;
+    border-left: 3px solid #333;
+    transition: background-color 0.3s ease, color 0.3s ease, border-left 0.3s ease;
+}
+.nueva:hover{
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border-left: 3px solid white;
+}
+.contenido_tabla{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+.tabla_campo{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10%;
+    font-size: 1.2em;
+    box-sizing: border-box;
+}
+
+.cabecera{
+    border-bottom: 3px solid #333;
+}
+.campo{
+display: flex;
+align-items: center;
+max-width: 20%;
+width: 15%;
+min-width: 10%;
+
+
+}
+.campo_nombre{
+    flex: 1;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    max-width: 60%;
+    min-width: 10%;
+
+}
+
+.campo_boton{
+display: flex;
+justify-content: center;
+min-width: 10%;
+}
+
+.modificar{
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    padding: 3%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 0.8em;
+    min-width: 50px;
+}
+
+.modificar:hover{
+    background-color: white;
+    color: black;
+}
+
+.left_button{
+    width: 100%;
+    gap: 10px;
+    display: flex;
+    color:#D9D9D9 ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    font-size: 0.8em;
+    padding: 10px 0;
+}
+.button_text{
+    padding: 0 5px;
+}
+.seleccionado{
+    background-color: #D9D9D9;
+    color: black;
+}
+
+.seleccionar:hover{
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    background-color: #D9D9D9;
+    color: black;
+}
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 10px;
+    padding: 40px;
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    width: 40%;
+    margin: 0 auto;
+    position: relative;
+    align-items: center;
+}
+.modificar_modal{
+    width: 25%;
+    min-width: 60px;
+    box-sizing: border-box;
+    margin:10px 0 0 0;
+}
+
+.label_modificar{
+    font-size: 1.1em ;
+    padding: 7px 0 0 0;
+}
+
+.input_modificar{
+    outline: none;
+    width: 70%;
+    border: none;
+    border-bottom: 2px solid white;
+    padding: 0px 0 3px 0;
+    background-color: #333;
+    color: white;
+    font-size: 1.05em;
+    margin-bottom: 45px;
+}
+
+.cerrar_boton{
+    position: absolute;
+    right: 20px;
+    border: none;
+    background-color: #333;
+    color: white;
+    font-size: 1.3em;
+    transition: color 0.3s ease;
+}
+
+.cerrar_boton:hover{
+    cursor: pointer;
+    color: #292929;
+}
+
+.cosas_tabla{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media (max-width: 1279px) {
+    body {
+      font-size: 13px;  
+    }
+  }

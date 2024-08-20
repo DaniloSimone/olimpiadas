@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <dialog id="modalnueva" >
+        <div class="modal" id="agregar">
+            <h2>Nueva</h2>
+            <button class="cerrar_boton"> X </button>
+            <label for="nombre_modificar" class="label_modificar">Nombre</label>
+            <input type="text" name="nombre_modificar" id="nombre_modificar" class="input_modificar agregar_nombre" id="agregar_nombre">
+            <label for="nombre_modificar"  class="label_modificar">Precio</label>
+            <input type="text" name="precio_modificar" id="precio_modificar" class="input_modificar agregar_precio" id="agregar_precio">
+            <label for="nombre_modificar"  class="label_modificar">Descuento</label>
+            <input type="text" name="descripcion_modificar" id="descuento_modificar" class="input_modificar agregar_descuento" id="agregar_descuento">
+            <label for="nombre_modificar"  class="label_modificar">Descripcion</label>
+            <input type="text" name="descripcion_modificar" id="descripcion_modificar" class="input_modificar agregar_descripcion" id="agregar_descripcion">
+            <button class="modificar modificar_modal" id="agregarboton">Agregar</button>
+        </div>
+    </dialog>
+    <div class="todo">
+        <header>
+            <h1>KNS</h1>
+        </header>
+        <div class="contenido"> 
+            <div class="left"> 
+             <div class="left_button burger seleccionado" id="burguer">
+                <div class="button_logo"> 1 </div>
+                <div class="button_text"> Burguer </div>
+             </div>
+
+             <div class="left_button seleccionar" id="papas">
+                <div class="button_logo"> 2 </div>
+                <div class="button_text"> Papas </div>
+             </div>
+               
+             <div class="left_button seleccionar" id="bebida">
+                <div class="button_logo"> 3 </div>
+                <div class="button_text"> Bebida </div>
+             </div>
+
+
+            </div>
+            <div class="right"> 
+                <div class="buscador_nuevo">
+                    <div class="div_input"><input type="text" name="" id="" placeholder="Buscar" class="buscar"></div>
+                    <div class="div_nueva"><button class="nueva">Nueva +</button></div>
+                </div>
+
+        <div class="contenido_tabla ">
+               
+            <div class="tabla_campo cabecera">
+                <div class="campo campo_nombre">Nombre</div>
+                <div class="campo campo_precio">Precio</div>
+                <div class="campo campo_descuento">Descuento</div>
+                <div class="campo campo_boton"> </div>
+            </div>
+            <div class="cosas_tabla">
+            <div class="tabla_campo">
+                <div class="campo campo_nombre">Nombre</div>
+                <div class="campo campo_precio">10000</div>
+                <div class="campo campo_descuento">0</div>
+                <div class="campo campo_boton"> <button class="modificar">Editar</button></div>
+            </div>
+
+            <div class="tabla_campo">
+                <div class="campo campo_nombre">Nombre</div>
+                <div class="campo campo_precio">10000</div>
+                <div class="campo campo_descuento">0</div>
+                <div class="campo campo_boton"> <button class="modificar">Editar</button></div>
+            </div>
+
+            <div class="tabla_campo">
+                <div class="campo campo_nombre">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi placeat qui nemo quae repudiandae voluptas temporibus hic, sapiente quia quaerat incidunt, laborum neque distinctio autem odit aliquid possimus voluptatem molestiae.</div>
+                <div class="campo campo_precio">10000</div>
+                <div class="campo campo_descuento">0</div>
+                <div class="campo campo_boton"> <button class="modificar">Editar</button></div>
+            </div>
+
+            <div class="tabla_campo">
+                <div class="campo campo_nombre">Nombre</div>
+                <div class="campo campo_precio">10000</div>
+                <div class="campo campo_descuento">0</div>
+                <div class="campo campo_boton"> <button class="modificar">Editar</button></div>
+            </div>
+            <div class="tabla_campo">
+                <div class="campo campo_nombre">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi placeat qui nemo quae repudiandae voluptas temporibus hic, sapiente quia quaerat incidunt, laborum neque distinctio autem odit aliquid possimus voluptatem molestiae.</div>
+                <div class="campo campo_precio">10000</div>
+                <div class="campo campo_descuento">0</div>
+                <div class="campo campo_boton"> <button class="modificar">Editar</button></div>
+            </div>   <div class="tabla_campo">
+                <div class="campo campo_nombre">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi placeat qui nemo quae repudiandae voluptas temporibus hic, sapiente quia quaerat incidunt, laborum neque distinctio autem odit aliquid possimus voluptatem molestiae.</div>
+                <div class="campo campo_precio">10000</div>
+                <div class="campo campo_descuento">0</div>
+                <div class="campo campo_boton"> <button class="modificar">Editar</button></div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+    </div>
+<script src="js/jquery.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
