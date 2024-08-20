@@ -1,6 +1,3 @@
 <?php
-$conexion = mysqli_connect("localhost","root","","kns");
-
-
-
+ $conex = mysqli_connect('localhost','root','','olimpiadas');
 ?>

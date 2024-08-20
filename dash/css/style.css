@@ -20,6 +20,8 @@ header{
     padding: 20px;
     border-bottom: 3px solid #333;
     flex: 0;
+    display: flex;
+    justify-content: center;
 }
 
 dialog{
@@ -27,7 +29,6 @@ dialog{
     width: 100vw;
     border: none;
     overflow-y: hidden;
-    background-color: #0009;
     position: fixed;
     
 }
@@ -146,8 +147,10 @@ min-width: 10%;
 
 .campo_boton{
 display: flex;
+flex-direction: column;
 justify-content: center;
 min-width: 10%;
+gap: 10px;
 }
 
 .modificar{
@@ -251,6 +254,13 @@ min-width: 10%;
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+
+.img_h{
+    width: 13em;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 @media (max-width: 1279px) {
