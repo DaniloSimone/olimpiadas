@@ -444,6 +444,12 @@ body, html {
     background-color: #0009;
     width: 100%;
     height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2em;
+    color: white;
 }
 
 .slide {
@@ -624,7 +630,7 @@ img{
     padding: 3.2rem 0;
 }
 .product-col-left{
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../images/zapaombre.jpg") center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../images/zapaombre.png") center/cover no-repeat;
 }
 .product-col-r-top{
     background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)), url("../images/invierno.jpg") center/cover no-repeat;
@@ -693,7 +699,8 @@ img{
     color: black;
     padding: 12px 16px;
     text-decoration: none;
-    display: block;            border-radius: 8px;
+    display: block;           
+    border-radius: 8px;
 }
 
 .opciones-desplegables a:hover {
@@ -733,7 +740,10 @@ img{
     height: 100%;
 }
 
+.logo_slide{
+    width: 10em;
 
+}
 
 
 
