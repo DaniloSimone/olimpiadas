@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cc.css">
+    <link rel="stylesheet" href="css/header.css">
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <style>
     </style>
 </head>
 <body>
+<header></header>
 <dialog class="dialog" id="dialog">
 <div class="div_dialog">
     <h2>¡Compra Exitosa!</h2>
@@ -39,7 +42,7 @@
                 </p>
 
                 <div class="button-container">
-                    <button class="botonpagar confpagar" type="submit" id="submit-button">Pagar</button>
+                    <div id="cardPaymentBrick_container"></div>
                 </div>
            
         </div>
@@ -86,6 +89,9 @@
              </p>
         </div>
    </footer>
+   <script>
+    
+  </script>
     <script src="js/script.js"></script>
     <script src="js/header.js"></script>
 <script src="js/confcomp.js"></script>

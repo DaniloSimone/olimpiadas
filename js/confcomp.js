@@ -1,3 +1,5 @@
+let supertotal = 0
+
 if(!localStorage.getItem("usuariosesion")){
     document.location.href = "./iniciarsesion.html"
 }
@@ -29,8 +31,91 @@ const carrito = async ()=>{
     });
     document.querySelector(".product-list").innerHTML = carritohtml;
     document.querySelector(".total-price").innerHTML = `$${totaltotal}`;
+    supertotal = parseInt(totaltotal);
+    const crearcompra = async ()=>{
+      let request = await fetch('php/crearcompra.php', {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
+        },
+        method: "POST",
+        body: JSON.stringify({}),
+        credentials: 'include'  
+      });
+      var info = await request.json();
+      if(request.status != 200){
+          console.log("Hubo un error");
+          return
+      }
+      console.log("Compra realizada correctamente")
+      dialog.showModal()
+    }
+    const mp = new MercadoPago('TEST-85c202b1-4d08-4136-900e-eb64324a8ff1', {
+      locale: 'es-AR'
+    });
+    const bricksBuilder = mp.bricks();
+    const renderCardPaymentBrick = async (bricksBuilder) => {
+      const settings = {
+        initialization: {
+          amount: supertotal   , // monto a ser pago
+          payer: {
+            email: "",
+          },
+        },
+        customization: {
+          visual: {
+            style: {
+              customVariables: {
+                theme: 'default', // | 'dark' | 'bootstrap' | 'flat'
+              }
+            }
+          },
+            paymentMethods: {
+              maxInstallments: 1,
+            }
+        },
+        callbacks: {
+          onReady: () => {
+            // callback llamado cuando Brick esté listo
+          },
+          onSubmit: (cardFormData) => {
+            //  callback llamado cuando el usuario haga clic en el botón enviar los datos
+            //  ejemplo de envío de los datos recolectados por el Brick a su servidor
+            return new Promise((resolve, reject) => {
+              fetch("php/mercadopago.php", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(cardFormData)
+              })
+                .then((response) => {
+                  crearcompra();  
+                  resolve();
+                })
+                .catch((error) => {
+                  // tratar respuesta de error al intentar crear el pago
+                  console.log("chau")
+                  reject();
+                })
+            });
+          },
+          onError: (error) => {
+            // callback llamado para todos los casos de error de Brick
+           error
+          },
+        },
+      };
+      window.cardPaymentBrickController = await bricksBuilder.create('cardPayment', 'cardPaymentBrick_container', settings);
+    };
+    renderCardPaymentBrick(bricksBuilder);
+    
+    
+    
 }
 carrito();
+
+
 
 const ubicacion = async ()=>{
     let request = await fetch('php/coseguirubi.php', {
@@ -64,28 +149,6 @@ const ubicacion = async ()=>{
 
 ubicacion();
 
-document.querySelector(".confpagar").addEventListener("click", (e)=>{
-  console.log
-  const crearcompra = async ()=>{
-    let request = await fetch('php/crearcompra.php', {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
-      },
-      method: "POST",
-      body: JSON.stringify({}),
-      credentials: 'include'  
-    });
-    var info = await request.json();
-    if(request.status != 200){
-        console.log("Hubo un error");
-        return
-    }
-    console.log("Compra realizada correctamente")
-    dialog.showModal()
-  }
-  crearcompra();
-});
 
 document.querySelector("#close-button").addEventListener("click", (e)=>{
   document.location.href = "./index.html";
@@ -111,3 +174,7 @@ document.querySelector("#close-button").addEventListener("click", (e)=>{
       numerocarrito();
     }
 })
+
+
+
+
