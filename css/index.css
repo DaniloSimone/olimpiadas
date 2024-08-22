@@ -646,10 +646,11 @@ img{
     margin: 5px;
 }
 .product-col-r-bottom > div:first-child{
-    background: url("../images/telas.jpg");
+    background: url("../images/natacion-deporte-completo.avif");
+    color: black;
 }
 .product-col-r-bottom > div:last-child{
-
+    color: black;
     background: url("../images/niños.jpg");
 }
 .product-col-content{
@@ -744,8 +745,9 @@ img{
     width: 10em;
 
 }
-
-
+.titulochiquito{
+    background-color: #0009;
+}
 
 /* Imagenes debajo de las cards */
 @media screen and (min-width: 992px){

@@ -12,15 +12,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ECE6F0;
+  background: #f5f5f5;
 }
 .wrapper {
+  background-color: red;
   position: relative;
   max-width: 470px;
-  width: 100%;
-  border-radius: 12px;
+  border-radius: 0 12px 12px 0;
   padding: 20px 30px 120px;
-  background: #625984;
+  background: #fff;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   overflow: hidden;
 }
@@ -45,13 +45,20 @@ body {
 .form header {
   font-size: 30px;
   text-align: center;
-  color: #fff;
+  color: #333;
   font-weight: 600;
   cursor: pointer;
+}
+.form header:hover{
+  color: black;
 }
 .form.login header {
   color: #333;
   opacity: 0.6;
+}
+
+.form.login header:hover{
+  color: black;
 }
 .wrapper.active .form.login header {
   opacity: 1;
@@ -75,6 +82,7 @@ form input {
   color: #333;
   border-radius: 8px;
   background: #fff;
+  border:#333 solid 1px;
 }
 .form.login input {
   border: 1px
@@ -94,12 +102,12 @@ form .checkbox {
 .checkbox input[type="checkbox"] {
   height: 20px;
   width: 20px;
-  accent-color: #fff;
+  accent-color: black;
   cursor: pointer;
 }
 form .checkbox label {
   cursor: pointer;
-  color: #fff;
+  color: #333;
 }
 form a {
   color: #333;
@@ -114,10 +122,42 @@ form input[type="submit"] {
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
+  color: #fff;
+  background-color: #333;
+  
 }
-  .form.login input[type="submit"] {
-    background: #625984;
+.form.login input[type="submit"] {
+  background: #333;
   color: #fff;
   border: none;
 
+}
+.contenido{
+  display: flex;
+  flex-direction: row;
+}
+
+.informacion{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-radius: 12px 0 0 12px;
+  background-color: #333;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginform{
+  display: flex;
+  flex: 1;
+}
+
+
+@media (max-width: 1279px) {
+  .informacion {
+    display: none;  
+  }
+  .wrapper{
+    border-radius: 12px 12px 12px 12px;
+  }
 }
