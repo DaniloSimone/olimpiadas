@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cc.css">
+    <link rel="stylesheet" href="css/header.css">
     <style>
     </style>
 </head>
 <body>
+<header></header>
 <dialog class="modalc" id="modalc">
         <div class="div_dialog cancelardiv">
             <h2 class="sub_modal"> Cancelar</h2>
@@ -41,139 +43,13 @@
         <button class="botonpagar cerrarmodal" type="submit" id="submit-button">Cerrar</button>
     </div>
 </dialog>
-    <header>
-        <div class="header_top">
-            <form action="producto.html" method="get">
-            <div class="top2">
-                    <div class="search-container">
-                        <input type="text" id="search-input" name="nombre" placeholder="Busque algo">
-                </div>
-                <div class="top2search">
-                    <button id="search-button" class="transparent-button">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-
-                </div>
-            </div>
-        </form>
-            <div class="top5section">
-                <div class="top5left">
-                    <i class="fa-regular fa-user"></i>
-                </div>
-                <div class="top3right">
-                    <a href="iniciarsesion.html">
-                    <p>Bienvenido</p>
-                    <p><b>Inicia / Registrate</b></p>
-                </a>
-                </div>
-            </div>
-            <a href="carrito.html">
-           <div class="top6section">
-            <div class="top5left">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-            <div class="top6right">
-                <div class="pcart">
-                    <p class="carrito_numero">0</p>
-                </div>
-                <p><b>Carrito</b></p>
-            </div>
-           </div>
-            </a>
-        </div>
-        <div class="header_btm">
-                <div class="catsec">
-                    <div class="dropdown">
-                        <button class="dropbtn">Todas las Categorías</button>
-                        <div class="dropdown-content">
-                            <div class="dropdown-section">
-                                <a href="#">Electrónica</a>
-                                <a href="#">Ropa</a>
-                                <a href="#">Hogar</a>
-                                <a href="#">Juguetes</a>
-                                <a href="#">Deportes</a>
-                            </div>
-                            <div class="dropdown-section">
-                                <a href="#">Belleza</a>
-                                <a href="#">Salud</a>
-                                <a href="#">Automóviles</a>
-                                <a href="#">Herramientas</a>
-                                <a href="#">Jardín</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="">
-                <div class="btm3 btmHover">
-                    <p>Novedades</p>
-                </div>
-                </a>
-                <a href="">
-                <div class="btm4 btmHover">
-                    <p>Marcas</p>
-                </div>
-                </a>
-                <a href="">
-                <div class="btm5 btmHover">
-                    <p>Ayuda</p>
-                </div>
-                </a>
-                <a href="">
-                <div class="btm6 btmHover">
-                    <p>Sobre Nosotros</p>
-                </div>
-                </a>
-                <div class="btm7 btmHover">
-                    <div class="barra-navegacion">
-                        <div class="menu-desplegable">
-                            <button class="boton-desplegable">Más</button>
-                            <div class="contenido-desplegable">
-                                <a href="#">Mis Pedidos</a>
-                                <a href="#">Ayuda</a>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </header>
+    
     <div class="container_pagar">
         <div class="header">
             <h1>TODAS MIS COMPRAS</h1>
         </div>
         <div class="cosas">
-        <div class="form-container">
-                <label for="product-names">
-                Numero de compra: 1 <br>
-                <b>Estado: En camino</b></label>
-                <label for="total-price">Precio Total de la Compra:</label>
-                <p class="p_pagar total-price">$1.500,00</p>
-                <label for="ubicacion">Ubicación:</label>
-                <p class="p_pagar location">
-                xxxxx
-                </p>
-                <div class="button-container">
-                    <button class="botonpagar" type="submit" id="submit-button">Ver productos</button>
-                    <button class="botonpagar" type="submit" id="submit-button">Cancelar Compra</button>
-                </div>
-           
-        </div>
-        
-        <div class="form-container">
-            <label for="product-names">
-            Numero de compra: 1 <br>
-            <b>Estado: En camino</b></label>
-            <label for="total-price">Precio Total de la Compra:</label>
-            <p class="p_pagar total-price">$1.500,00</p>
-            <label for="ubicacion">Ubicación:</label>
-            <p class="p_pagar location">
-            xxxxx
-            </p>
-            <div class="button-container">
-                <button class="botonpagar" type="submit" id="submit-button">Ver productos</button>
-                <button class="botonpagar" type="submit" id="submit-button">Cancelar Compra</button>
-            </div>
-       
-    </div>
+        <h2>No hay compras</h2>
         </div>
     </div>
     <footer class="footer">
@@ -219,7 +95,7 @@
         </div>
    </footer>
     <script src="js/miscompras.js"></script>
-    <script src="js/script.js"></script>
     <script src="js/header.js"></script>
+
 </body>
 </html>

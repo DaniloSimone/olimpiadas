@@ -18,14 +18,17 @@ let forml = document.querySelector('.login');
         });
         let response = await request.json();
         if(request.status != 200){
-            if(request.status = 409){
+            if(request.status == 409){
                 console.log("nombre o mail ya utilizado")
+                document.querySelector('.error').innerHTML = "<p>nombre o mail ya utilizado</p>";
                 return
+                
             }
+            return
         }
-        localStorage.setItem("usuariosesion", response);
+      localStorage.setItem("usuariosesion", response);
         console.log(localStorage.getItem("usuariosesion"));
-        document.location.href = "./index.html"
+        history.back();
       }
       register();
 })
@@ -53,7 +56,7 @@ let forml = document.querySelector('.login');
         }
         localStorage.setItem("usuariosesion", response);
         console.log(localStorage.getItem("usuariosesion"));
-        document.location.href = "./index.html";
+        history.back();
     }
     login()
 })

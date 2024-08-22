@@ -1,3 +1,6 @@
+if(!localStorage.getItem("usuariosesion")){
+  document.location.href = "./iniciarsesion.html"
+}
 document.addEventListener('DOMContentLoaded', () => {
 function modificarcarrito(pkcarrito, cantidad){
     const numerocarrito = async ()=>{
@@ -37,7 +40,6 @@ function modificarcarrito(pkcarrito, cantidad){
             cosashtml += `
             <div class="cart-items">
             <div class="cart-item" data-price="${dato.precio}">
-                <img src="images/pol.jpg" alt="Producto 1">
                 <div class="item-details">
                     <h2>${dato.nombre}</h2>
                     <p class="price">$${dato.precio}</p>

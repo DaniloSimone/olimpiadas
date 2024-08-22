@@ -12,7 +12,7 @@ $contrasena = $_POST["contrasena"];
 
 $consulta = "SELECT * from usuario where mail='$mail' and nombre='$nombre' ";
 $query = mysqli_query($conex, $consulta);
-if(mysqli_num_rows($query)){
+if(mysqli_num_rows(($query))){
 while($fetch = mysqli_fetch_assoc($query)){
     throw new Exception("Usuario o Mail ya utilizados", 409);
 }}else{

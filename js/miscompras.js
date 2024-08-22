@@ -1,3 +1,6 @@
+if(!localStorage.getItem("usuariosesion")){
+  document.location.href = "./iniciarsesion.html"
+}
 const miscompra = async ()=>{
     let request = await fetch('php/miscompras.php', {
       headers: {

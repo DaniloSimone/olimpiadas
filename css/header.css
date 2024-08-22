@@ -1,0 +1,126 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+header{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background-color: #333;
+width: 100%;
+padding: 70px 0;
+}
+.buscador_sesion_carrito{
+display: flex;
+flex-direction: row;
+width: 100%;
+justify-content: center;
+font-size: 1.2em;
+gap: 5em;
+}
+.buscador{
+    display: flex;
+}
+.sesion_carrito{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+.carrito{
+    display: flex;
+    
+}
+.a_carrito{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+.carrito p{
+    color: white;
+    margin: 0;
+}
+.form_buscador{
+    display: flex;
+    align-items: center;
+    
+}
+.input_buscador{
+    border-radius: 10px 0 0 10px;
+    height: 2em;
+    width: 32em;
+    border: none;
+    outline: none;
+    background-color: white;
+    padding: 0 1em;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+.boton_buscador{
+    border-radius: 0 10px 10px 0;
+    height: 3em;
+    width: 3em;
+    background-color: black;
+    border: none;
+    display: flex;
+    justify-content: center;
+}
+.fas{
+    color: white;
+    font-size: 1.2em;
+    margin: auto;
+}
+.logo{
+    width: 7em;
+}
+.isesion{
+    color: white;
+}
+.div_botones{
+    display: flex;
+    gap: 20px;
+}
+.header_botones{
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-bottom: white 2px solid;
+    padding: 1px;
+    transition: 0.5s;
+    flex-wrap: wrap;
+}
+.header_botones:hover{
+    background: white;
+    color: #333;
+}
+.cerrar_sesion{
+    cursor: pointer;
+}
+@media (max-width: 1279px) {
+    .buscador{
+        flex-direction: column;
+        align-items: center;
+        font-size: 10px;
+        gap: 5px;
+    }
+    header {
+      font-size: 10px;
+      gap: 5px;
+      
+    }
+    .buscador_sesion_carrito{
+        flex-direction: column;
+        gap: 1em;
+    }
+    .input_buscador{
+        border-radius: 10px;
+    }
+    .boton_buscador{
+     display: none;
+    }
+  }

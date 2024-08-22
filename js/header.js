@@ -1,3 +1,38 @@
+let cabecera = `
+ <div class="buscador_sesion_carrito">
+            <div class="buscador">
+                <a href="index.html"><img src="log.png" alt="" class="logo"></a>
+                <form action="producto.html" method="get" class="form_buscador">
+                <input type="text" name="nombre" placeholder="Buscar..." class="input_buscador">
+                <button type="submit" class="boton_buscador"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div class="sesion_carrito">
+                <div class="sesion">
+                    <a href="iniciarsesion.html" class="isesion">Iniciar Sesión</a>
+                </div>
+                <div class="carrito">
+                <a href="carrito.html" class="a_carrito"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="div_botones">
+            <a href="producto.html?nombre="><button class="header_botones">Novedades</button></a>
+            <a href="mis-compras.html"><button class="header_botones">Mis compras</button></a>
+        </div>
+`
+
+
+if (document.readyState == 'loading') {
+  // cargando todavía, esperar el evento
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelector('header').innerHTML = cabecera;
+  });
+} else {
+  // DOM está listo!
+}
+
 
 function cerrarsesion() {
   localStorage.removeItem("usuariosesion");
@@ -17,26 +52,10 @@ if(localStorage.getItem("usuariosesion")){
     });
     var info = await request.json();
     console.log(info);
-    document.querySelector(".top3right").innerHTML = `<p>Bienvenido</p> <p><b>${info}</p>`;
-    document.querySelector(".contenido-desplegable").innerHTML += `<a onclick="cerrarsesion()">Cerrar Sesion</a>`;
+    document.querySelector(".sesion").innerHTML = `<p onclick="cerrarsesion()" class="cerrar_sesion">${info} <br> <b>Cerrar Sesion</b></p>`;
   }
   nombre();
   
-  const numerocarrito = async ()=>{
-    let request = await fetch('php/unidadcarrito.php', {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': "Bearer " + localStorage.getItem("usuariosesion"),
-      },
-      method: "POST",
-      body: JSON.stringify({}),
-      credentials: 'include'  
-    });
-    var info = await request.json();
-    console.log(info);
-    document.querySelector(".carrito_numero").innerHTML = info
-  }
-  numerocarrito();
 
 }else{
 }

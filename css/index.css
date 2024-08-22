@@ -35,7 +35,6 @@ a {
 @media(max-width: 767px){
     .header_top{
       width: 50%;
-      margin-bottom: 30px;
   }
   }
   @media(max-width: 574px){
@@ -437,6 +436,9 @@ body, html {
     width: 100%;
     background-image: url(../images/adidas.png);
     background-attachment: scroll;
+    background-position: start;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .slides {
@@ -747,6 +749,11 @@ img{
 }
 .titulochiquito{
     background-color: #0009;
+}
+
+
+header{
+   max-height: 100px;
 }
 
 /* Imagenes debajo de las cards */

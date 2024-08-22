@@ -1,6 +1,5 @@
 let get = new URLSearchParams(location.search);
 let nombre = get.get('nombre');
-document.querySelector("#search-input").value = nombre
 console.log(nombre)
 const bproducto = async ()=>{
     let request = await fetch(`php/mostrarproductos.php?nombre=${nombre}`, {
@@ -66,7 +65,7 @@ const bproducto = async ()=>{
     document.querySelector(".producto").innerHTML = producto
     document.querySelectorAll('.carrito_compra').forEach(btn=>{btn.addEventListener('click', function() {
         if(!localStorage.getItem("usuariosesion")){
-            document.location.href = "./index.html";
+            document.location.href = "./iniciarsesion.html";
         }
         let id = this.getAttribute("data-id")
         console.log(id);
@@ -94,7 +93,6 @@ const bproducto = async ()=>{
             this.innerHTML = "Agregado"
             }
           carrito()
-          numerocarrito();
     })
 });
 }

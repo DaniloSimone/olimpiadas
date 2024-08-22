@@ -4,112 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/carrito.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/carrito.css">
+    <link rel="stylesheet" href="css/header.css">
     <title>Carrito</title>
     <style>
         
     </style>
 </head>
 <body>
-    <header>
-        <div class="header_top">
-            <form action="producto.html" method="get">
-            <div class="top2">
-                    <div class="search-container">
-                        <input type="text" id="search-input" name="nombre" placeholder="Busque algo">
-                </div>
-                <div class="top2search">
-                    <button id="search-button" class="transparent-button">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-
-                </div>
-            </div>
-        </form>
-            <div class="top5section">
-                <div class="top5left">
-                    <i class="fa-regular fa-user"></i>
-                </div>
-                <div class="top3right">
-                    <a href="iniciarsesion.html">
-                    <p>Bienvenido</p>
-                    <p><b>Inicia / Registrate</b></p>
-                </a>
-                </div>
-            </div>
-            <a href="carrito.html">
-           <div class="top6section">
-            <div class="top5left">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-            <div class="top6right">
-                <div class="pcart">
-                    <p class="carrito_numero">0</p>
-                </div>
-                <p><b>Carrito</b></p>
-            </div>
-           </div>
-            </a>
-        </div>
-        <div class="header_btm">
-                <div class="catsec">
-                    <div class="dropdown">
-                        <button class="dropbtn">Todas las Categorías</button>
-                        <div class="dropdown-content">
-                            <div class="dropdown-section">
-                                <a href="#">Electrónica</a>
-                                <a href="#">Ropa</a>
-                                <a href="#">Hogar</a>
-                                <a href="#">Juguetes</a>
-                                <a href="#">Deportes</a>
-                            </div>
-                            <div class="dropdown-section">
-                                <a href="#">Belleza</a>
-                                <a href="#">Salud</a>
-                                <a href="#">Automóviles</a>
-                                <a href="#">Herramientas</a>
-                                <a href="#">Jardín</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="">
-                <div class="btm3 btmHover">
-                    <p>Novedades</p>
-                </div>
-                </a>
-                <a href="">
-                <div class="btm4 btmHover">
-                    <p>Marcas</p>
-                </div>
-                </a>
-                <a href="">
-                <div class="btm5 btmHover">
-                    <p>Ayuda</p>
-                </div>
-                </a>
-                <a href="">
-                <div class="btm6 btmHover">
-                    <p>Sobre Nosotros</p>
-                </div>
-                </a>
-                <div class="btm7 btmHover">
-                    <div class="barra-navegacion">
-                        <div class="menu-desplegable">
-                            <button class="boton-desplegable">Más</button>
-                            <div class="contenido-desplegable">
-                                <a href="#">Mis Pedidos</a>
-                                <a href="#">Ayuda</a>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </header>
-
+   <header></header>
     <dialog class="dialog" id="dialog">
         <div class="cuerpo_modal">
             <h2>Ubicacion del envio.</h2>
@@ -122,7 +28,7 @@
             </form>
         </div>
     </dialog>
-
+    <div class="contenido">
     <div class="cart-container">
         <h1>Carrito de Compras</h1>
         <div class="cartas">
@@ -131,11 +37,12 @@
         
         <div class="cart-summary">
             <h2>Resumen del Pedido</h2>
-            <p>Total: <span class="total-price">$10.00</span></p>
+            <p>Total: <span class="total-price">0</span></p>
             <button class="continue-shopping-btn">Seguir Comprando</button>
             <button class="checkout-btn" disabled>Proceder al Pago</button>
         </div>
     </div>
+</div>
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -178,13 +85,8 @@
              </p>
         </div>
    </footer>
-    <script src="js/script.js"></script>
+
     <script src="js/carrito.js"></script>
     <script src="js/header.js"></script>
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-        }
-    </script>
 </body>
 </html>
