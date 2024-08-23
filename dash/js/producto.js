@@ -20,7 +20,7 @@ const producto = async ()=>{
                 <div class="campo campo_nombre">${dato.nombre}</div>
                 <div class="campo campo_precio">${dato.precio}</div>
                 <div class="campo campo_descuento">${dato.stock}</div>
-                <div class="campo campo_boton"> <button class="modificar" data-id="${dato.pkproducto}">Editar</button></div>
+               
             </div>
         `;
     });

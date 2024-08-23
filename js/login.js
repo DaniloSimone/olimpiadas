@@ -20,7 +20,7 @@ let forml = document.querySelector('.login');
         if(request.status != 200){
             if(request.status == 409){
                 console.log("nombre o mail ya utilizado")
-                document.querySelector('.error').innerHTML = "<p>nombre o mail ya utilizado</p>";
+                document.querySelector('.error').innerHTML = "<p>Nombre o mail ya utilizado</p>";
                 return
                 
             }
@@ -49,10 +49,8 @@ let forml = document.querySelector('.login');
         });
         let response = await request.json();
         if(request.status != 200){
-            if(request.status = 409){
-                console.log("Mail o contraseña incorrectas")
-                return
-            }
+          document.querySelector('.errorl').innerHTML = "<p>Mail o contraseña incorrecta</p>";
+          return
         }
         localStorage.setItem("usuariosesion", response);
         console.log(localStorage.getItem("usuariosesion"));

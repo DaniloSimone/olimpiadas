@@ -3,99 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>logindash</title>
+    <style> 
+        body{
+            margin: 0;
+            padding: 0;
+            background: url(../images/fondo.jpg);
+            background-size: cover;
+            background-position: center;
+            font-family: sans-serif;
+        }
+        .contenido{
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            width: 300px;
+            background: #f2f2f2;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 15px 25px rgba(0,0,0,.5);
+        }
+        .loginmail, .logincontrasena{
+            width: 100%;
+            background: #f2f2f2;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px 0;
+            border-bottom: 2px solid #ccc;
+        }
+        input[type="submit"]{
+            width: 100%;
+            background: #333;
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <dialog id="modalnueva" >
-        <div class="modal" id="agregar">
-            <h2>Nueva</h2>
-            <button class="cerrar_boton"> X </button>
-            <label for="nombre_modificar" class="label_modificar">Nombre</label>
-            <input type="text" name="nombre_modificar" id="nombre_modificar" class="input_modificar agregar_nombre" id="agregar_nombre">
-            <label for="nombre_modificar"  class="label_modificar">Precio</label>
-            <input type="text" name="precio_modificar" id="precio_modificar" class="input_modificar agregar_precio" id="agregar_precio">
-            <label for="nombre_modificar"  class="label_modificar">Stock</label>
-            <input type="text" name="descripcion_modificar" id="descuento_modificar" class="input_modificar agregar_descuento" id="agregar_descuento">
-            <label for="nombre_modificar"  class="label_modificar">Descripcion</label>
-            <input type="text" name="descripcion_modificar" id="descripcion_modificar" class="input_modificar agregar_descripcion" id="agregar_descripcion">
-            <button class="modificar modificar_modal" id="agregarboton">Agregar</button>
-        </div>
-    </dialog>
-    <div class="todo">
-        <header>
-            <img src="log.png" alt="" class="img_h">
-        </header>
-        <div class="contenido"> 
-            <div class="left"> 
-             <div class="left_button burger seleccionado" id="burguer">
-                <div class="button_logo"> 1 </div>
-                <div class="button_text"> Productos </div>
-             </div>
-
-             <a href="pedidos.html"><div class="left_button seleccionar" id="papas">
-                <div class="button_logo"> 2 </div>
-                <div class="button_text"> Pedidos </div>
-             </div></a>
-            </div>
-            <div class="right"> 
-                <div class="buscador_nuevo">
-                    <div class="div_input"><input type="text" name="" id="" placeholder="Buscar" class="buscar"></div>
-                    <div class="div_nueva"><button class="nueva">Nueva +</button></div>
-                </div>
-
-        <div class="contenido_tabla ">
-               
-            <div class="tabla_campo cabecera">
-                <div class="campo campo_nombre">Nombre</div>
-                <div class="campo campo_precio">Precio</div>
-                <div class="campo campo_descuento">Stock</div>
-                <div class="campo campo_boton"> </div>
-            </div>
-            <div class="cosas_tabla">
-            <div class="tabla_campo">
-                <div class="campo campo_nombre">Nombre</div>
-                <div class="campo campo_precio">10000</div>
-                <div class="campo campo_descuento">0</div>
-                <div class="campo campo_boton"> <button class="modificar">Editar</button></div>
-            </div>
-
-            <div class="tabla_campo">
-                <div class="campo campo_nombre">Nombre</div>
-                <div class="campo campo_precio">10000</div>
-                <div class="campo campo_descuento">0</div>
-                <div class="campo campo_boton"> <button class="modificar">Editar</button></div>
-            </div>
-
-            <div class="tabla_campo">
-                <div class="campo campo_nombre">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi placeat qui nemo quae repudiandae voluptas temporibus hic, sapiente quia quaerat incidunt, laborum neque distinctio autem odit aliquid possimus voluptatem molestiae.</div>
-                <div class="campo campo_precio">10000</div>
-                <div class="campo campo_descuento">0</div>
-                <div class="campo campo_boton"> <button class="modificar">Editar</button></div>
-            </div>
-
-            <div class="tabla_campo">
-                <div class="campo campo_nombre">Nombre</div>
-                <div class="campo campo_precio">10000</div>
-                <div class="campo campo_descuento">0</div>
-                <div class="campo campo_boton"> <button class="modificar">Editar</button></div>
-            </div>
-            <div class="tabla_campo">
-                <div class="campo campo_nombre">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi placeat qui nemo quae repudiandae voluptas temporibus hic, sapiente quia quaerat incidunt, laborum neque distinctio autem odit aliquid possimus voluptatem molestiae.</div>
-                <div class="campo campo_precio">10000</div>
-                <div class="campo campo_descuento">0</div>
-                <div class="campo campo_boton"> <button class="modificar">Editar</button></div>
-            </div>   <div class="tabla_campo">
-                <div class="campo campo_nombre">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi placeat qui nemo quae repudiandae voluptas temporibus hic, sapiente quia quaerat incidunt, laborum neque distinctio autem odit aliquid possimus voluptatem molestiae.</div>
-                <div class="campo campo_precio">10000</div>
-                <div class="campo campo_descuento">0</div>
-                <div class="campo campo_boton"> <button class="modificar">Editar</button></div>
-            </div>
-            </div>
-        </div>
-        </div>
-
+    <div class="contenido">
+        <form class="form">
+            <input type="text" class="loginmail" placeholder="Email" required />
+            <input type="password" class="logincontrasena" placeholder="Contraseña" required />
+            <input type="submit" value="Inicia Sesión"/>
+        </form>
     </div>
-<script src="js/producto.js"></script>
 </body>
+<script>
+    document.querySelector(".form").addEventListener("submit", function(e){
+        e.preventDefault();
+        const mail = document.querySelector(".loginmail").value;
+        const contrasena = document.querySelector(".logincontrasena").value;
+        if(mail === "admin" && contrasena === "admin"){
+            alert("Bienvenido");
+            window.location.href = "pedidos.html";
+        }else{
+            alert("Usuario o contraseña incorrectos");
+        }
+    });
+</script>
 </html>
